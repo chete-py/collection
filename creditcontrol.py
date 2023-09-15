@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_gsheets import GSheetsConnection
 import gspread
 from google.oauth2 import service_account
 
