@@ -100,6 +100,13 @@ if check_password():
             # Format highest_collected_amount as an integer with a thousands separator
             formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
 
+            current_date = datetime.datetime.now()
+            start_of_week = current_date - datetime.timedelta(days=current_date.weekday())
+            end_of_week = start_of_week + datetime.timedelta(days=6)
+            
+            week = df[(pd.to_datetime(df['Date']).dt.date >= start_of_week.date()) & (pd.to_datetime(df['Date']).dt.date <= end_of_week.date())]
+            weekly_amount = week["Amount Collected"].sum()
+
             st.markdown(
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
                 f'<div style="background-color: #f19584; padding: 10px; border-radius: 10px; width: 500px; margin-right: 20px;">'
@@ -111,6 +118,10 @@ if check_password():
                 f'<strong style="color: black;">HIGHEST COLLECTOR</strong> <br>'
                 f"{name}<br>"
                 f"{formatted_highest_collected_amount}<br>"
+                f'</div>'
+                f'<div style="background-color: #EFE9AB; padding: 10px; border-radius: 10px; width: 500px; margin-right: 20px;">'
+                f'<strong style="color: black;">THIS WEEK COLLECTION</strong> <br>'                
+                f"{weekly_collection}<br>"
                 f'</div>'
                 f'</div>',
                 unsafe_allow_html=True
