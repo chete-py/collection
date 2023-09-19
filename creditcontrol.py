@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import gspread
 import plotly.express as px
-from streamlit_gsheets import GSheetsConnection
 from google.oauth2 import service_account
 import base64
 
