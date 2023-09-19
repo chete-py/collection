@@ -119,10 +119,10 @@ if check_password():
                 f'<strong style="color: black;">HIGHEST COLLECTOR</strong> <br>'
                 f"{name}<br>"
                 f"{formatted_highest_collected_amount}<br>"
-                f"<br>"
                 f'</div>'
                 f'<div style="background-color: #EFE9AB; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
-                f'<strong style="color: black;">THIS WEEK COLLECTION</strong> <br>'                
+                f'<strong style="color: black;">THIS WEEK COLLECTION</strong> <br>'  
+                f"<br>"
                 f"{weekly_amount}<br>"
                 f'</div>'
                 f'</div>',
