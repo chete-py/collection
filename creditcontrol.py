@@ -59,6 +59,7 @@ if check_password():
     
     # Add a sidebar
     st.sidebar.image('corplogo.PNG', use_column_width=True)
+    st.markdown("Navigation Pane")
     
     # Main Streamlit app code
     def main(): 
