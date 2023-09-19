@@ -70,67 +70,118 @@ if check_password():
             # Read data from the Google Sheets worksheet
             data = worksheet.get_all_values()
     
-            # Prepare data for Plotly
+           # Prepare data for Plotly
             headers = data[0]
             data = data[1:]
-            x_data = [row[2] for row in data]  # Assuming date is in the first column
-            y_data = [float(row[3]) for row in data]  # Assuming Outstanding Amount is in the fourth column
-    
-            highest_collector = data["Person Allocated"].mode().values[0]
-            frequent_category_count = data[data['Category'] == highest_collector].shape[0]
-    
+            df = pd.DataFrame(data, columns=headers)  # Convert data to a DataFrame
+            x_data = df['Person Allocated']
+            y_data = df['Outstanding Amount']
+
+            # Assuming your DataFrame is named 'df'
+            df['Delete'] = [''] * len(df)
+
+            # Convert the "Amount Collected" column to numeric
+            df['Amount Collected'] = pd.to_numeric(df['Amount Collected'])
+
+            highest_collector = df['Person Allocated'].mode().values[0]
+            frequent_category_count = df[df['Person Allocated'] == highest_collector].shape[0]
+
+            most_collected = df.groupby('Person Allocated')['Amount Collected'].sum().reset_index()
+
+            # Sort by the sum of 'Amount Collected' in descending order
+            result = most_collected.sort_values(by='Amount Collected', ascending=False)
+
+            # Get the person with the highest sum
+            highest_person = result.head(1)
+
+            name = highest_person['Person Allocated'].values[0]
+            highest_collected_amount = highest_person['Amount Collected'].values[0]
+
+            # Format highest_collected_amount as an integer with a thousands separator
+            formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
+
             st.markdown(
-                f'<hr style="margin-bottom: 20px;">'  # Add a horizontal line for spacing
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
-                f'<div style="background-color: #f19584; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
-                f'<strong style="color: black;"></strong> <br>'
+                f'<div style="background-color: #f19584; padding: 10px; border-radius: 10px; width: 500px; margin-right: 20px;">'
+                f'<strong style="color: black;">CONTACTED MOST DEBTORS</strong> <br>'
                 f"{highest_collector}<br>"
-                f"{frequent_category_count} times<br>"
+                f"{frequent_category_count} accounts<br>"
+                f'</div>'
+                f'<div style="background-color: #004080; padding: 10px; border-radius: 10px; width: 500px; margin-right: 20px;">'
+                f'<strong style="color: black;">HIGHEST COLLECTOR</strong> <br>'
+                f"{name}<br>"
+                f"{formatted_highest_collected_amount}<br>"
                 f'</div>'
                 f'</div>',
                 unsafe_allow_html=True
             )
-    
-            # Create a Plotly scatter plot
-            fig = px.bar(x=x_data, y=y_data, labels={'x': headers[2], 'y': headers[3]})
-            fig.update_layout(title="OUTSTANDING AMOUNTS PER PERSON ALLOCATED")
-    
-            # Display the Plotly plot in Streamlit
+
+            # Create a Plotly bar graph
+            fig = px.bar(x=x_data, y=y_data, labels={'x': 'Person Allocated', 'y': 'Outstanding Amount'})
+            fig.update_layout(title={'text': 'OUTSTANDING AMOUNTS PER PERSON ALLOCATED', 'x': 0.5, 'xanchor': 'center'}) 
+
+            # Display the Plotly bar graph in Streamlit
+            st.markdown("")
             st.plotly_chart(fig)
-    
+
         elif view == "New Record":
             # Add the dashboard elements here
             st.subheader("NEW ITEM")
-    
+
             # Create form fields for user input
             date = st.date_input("Date")
             intermediary = st.text_input("Intermediary")
             persons = st.selectbox("Persons Allocated:",["Samuel Kangi", "David Masui", "Chrispus Boro", "Collins Chetekei", "Dennis Amdany"])
             outstanding = st.number_input("Outstanding Amount")
             collected = st.number_input("Amount Collected")
-    
+            actions = st.text_area("Actions")
+            review = st.selectbox("Reviewed by:",["Samuel Kangi", "David Masui"])
+
             # Check if the user has entered data and submitted the form
             if st.button("Submit"):
-    
                 date_str = date.strftime("%Y-%m-%d")
-    
+
                 # Create a new row of data to add to the Google Sheets spreadsheet
-                new_data = [date_str, intermediary, persons, outstanding, collected]
-    
+                new_data = [date_str, intermediary, persons, outstanding, collected, actions, review]
+
                 # Append the new row of data to the worksheet
-                worksheet.append_row(new_data)
-    
-                # Write the new data to the Google Sheets spreadsheet
-                #conn.write(spreadsheet=url, data=new_data, worksheet="assign")
-    
-            # Create a form to input data for the new entry
-    
+                worksheet.append_row(new_data)     
+
         elif view == "Records":
             # Show the saved DataFrame here
             data = worksheet.get_all_values()
-    
-            st.subheader("RECORDS") 
-            st.dataframe(data)     
-    
+            headers = data[0]
+            data = data[1:]
+            df = pd.DataFrame(data, columns=headers)  # Convert data to a DataFrame
+            st.subheader("RECORDS")
+
+            # Get the unique reviewer names from the DataFrame
+            unique_reviewers = df['Reviewed by'].unique()
+
+            # Create a dropdown to select a reviewer with "All" option
+            selected_reviewer = st.selectbox("Filter by Reviewer:", ["All"] + list(unique_reviewers))
+
+            if selected_reviewer != "All":
+                # Filter the DataFrame based on the selected reviewer
+                filtered_df = df[df['Reviewed by'] == selected_reviewer]
+            else:
+                # If "All" is selected, show the entire DataFrame
+                filtered_df = df
+
+            edited_df = st.data_editor(filtered_df)
+
+            # Add a button to update Google Sheets with the changes
+            if st.button("Update Google Sheets"):
+                worksheet.clear()  # Clear the existing data in the worksheet
+                worksheet.update([edited_df.columns.tolist()] + edited_df.values.tolist())
+
+            # Add a button to download the filtered data as a CSV
+            if st.button("Download CSV"):
+                csv_data = edited_df.to_csv(index=False, encoding='utf-8')
+                b64 = base64.b64encode(csv_data.encode()).decode()
+                href = f'<a href="data:file/csv;base64,{b64}" download="collection_report.csv">Download CSV</a>'
+                st.markdown(href, unsafe_allow_html=True)              
+
     if __name__ == "__main__":
         main()
+
