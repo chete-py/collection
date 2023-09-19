@@ -47,12 +47,11 @@ if check_password():
     # Authenticate with Google Sheets using the credentials
     credentials = service_account.Credentials.from_service_account_file(credentials_path, scopes=['https://spreadsheets.google.com/feeds'])
     
-    # Authenticate with Google Sheets
+    # Authenticate with Google Sheets using gspread
     gc = gspread.authorize(credentials)
     
+    # Your Google Sheets URL
     url = "https://docs.google.com/spreadsheets/d/1i5HsneT9vpPREVo-ED_HwLLkPpsSjKVY0vuilehDXxg/edit#gid=0"
-    
-    conn = st.experimental_connection("gsheets", type=GSheetsConnection)
     
     # Open the Google Sheets spreadsheet
     worksheet = gc.open_by_url(url).worksheet("assign")
