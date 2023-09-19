@@ -115,7 +115,7 @@ if check_password():
                 f"{highest_collector}<br>"
                 f"{frequent_category_count} accounts<br>"
                 f'</div>'
-                f'<div style="background-color: #80ADFF; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
+                f'<div style="background-color: #E7BDFF; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black;">HIGHEST COLLECTOR</strong> <br>'
                 f"{name}<br>"
                 f"{formatted_highest_collected_amount}<br>"
