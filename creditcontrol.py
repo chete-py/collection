@@ -64,7 +64,7 @@ if check_password():
     # Main Streamlit app code
     def main(): 
         # Create a sidebar to switch between views
-        view = st.sidebar.radio("Navigation pane", ["Dashboard", "New Record", "Records"])
+        view = st.sidebar.radio("", ["Dashboard", "New Record", "Records"])
     
         if view == "Dashboard":
             st.subheader("PREMIUM COLLECTION UPDATE APPLICATION")
