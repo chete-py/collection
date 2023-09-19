@@ -4,6 +4,7 @@ import gspread
 import plotly.express as px
 from google.oauth2 import service_account
 import base64
+import datetime
 
 def check_password():
     """Returns `True` if the user had a correct password."""
@@ -109,17 +110,17 @@ if check_password():
 
             st.markdown(
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
-                f'<div style="background-color: #f19584; padding: 10px; border-radius: 10px; width: 500px; margin-right: 20px;">'
+                f'<div style="background-color: #f19584; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black;">CONTACTED MOST DEBTORS</strong> <br>'
                 f"{highest_collector}<br>"
                 f"{frequent_category_count} accounts<br>"
                 f'</div>'
-                f'<div style="background-color: #004080; padding: 10px; border-radius: 10px; width: 500px; margin-right: 20px;">'
+                f'<div style="background-color: #004080; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black;">HIGHEST COLLECTOR</strong> <br>'
                 f"{name}<br>"
                 f"{formatted_highest_collected_amount}<br>"
                 f'</div>'
-                f'<div style="background-color: #EFE9AB; padding: 10px; border-radius: 10px; width: 500px; margin-right: 20px;">'
+                f'<div style="background-color: #EFE9AB; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black;">THIS WEEK COLLECTION</strong> <br>'                
                 f"{weekly_collection}<br>"
                 f'</div>'
