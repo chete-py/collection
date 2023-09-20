@@ -153,7 +153,7 @@ if check_password():
             intermediary_names = newdf['Company'].unique()
              
             # Use st.selectbox to show autocomplete suggestions
-            intermediary = st.selectbox("Select an Intermediary Name", index=0)
+            intermediary = st.selectbox("Select an Intermediary Name", intermediary_names, index=0)
 
             # Filter the DataFrame based on the selected_name
             if intermediary:
