@@ -145,6 +145,10 @@ if check_password():
             # Create form fields for user input
             date = st.date_input("Date")
 
+            # Load the CSV file
+            csv_file_path = 'agencies.csv'  
+            newdf = pd.read_csv(csv_file_path)
+
              # Create a text input field for searching intermediary names
             search_name = st.text_input("Search by Intermediary Name", "")
 
