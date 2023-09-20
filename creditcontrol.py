@@ -144,7 +144,28 @@ if check_password():
 
             # Create form fields for user input
             date = st.date_input("Date")
-            intermediary = st.text_input("Intermediary")
+
+             # Create a text input field for searching intermediary names
+            search_name = st.text_input("Search by Intermediary Name", "")
+
+            # Create a list of suggestions based on the user's input
+            suggestions = newdf['Company'].unique()
+            filtered_suggestions = [s for s in suggestions if search_name.lower() in s.lower()]
+
+            # Use st.selectbox to show autocomplete suggestions
+            intermediary = st.selectbox("Select an Intermediary Name", filtered_suggestions, index=0)
+
+            # Filter the DataFrame based on the selected_name
+            if intermediary:
+                name_results = newdf[newdf['Company'].str.lower() == intermediary.lower()]
+                if not name_results.empty:
+                    st.write("Search Results:")
+                    st.dataframe(name_results)
+            else:
+                st.write("Search Results:")
+
+            
+            #intermediary = st.text_input("Intermediary")
             persons = st.selectbox("Persons Allocated:",["Samuel Kangi", "David Masui", "Chrispus Boro", "Collins Chetekei", "Dennis Amdany"])
             outstanding = st.number_input("Outstanding Amount")
             collected = st.number_input("Amount Collected")
