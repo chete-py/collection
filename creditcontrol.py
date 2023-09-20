@@ -151,7 +151,7 @@ if check_password():
 
              
             # Use st.selectbox to show autocomplete suggestions
-            intermediary = st.selectbox("Select an Intermediary Name", filtered_suggestions, index=0)
+            intermediary = st.selectbox("Select an Intermediary Name", index=0)
 
             # Filter the DataFrame based on the selected_name
             if intermediary:
