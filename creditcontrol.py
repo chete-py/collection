@@ -149,6 +149,8 @@ if check_password():
             csv_file_path = 'agencies.csv'  
             newdf = pd.read_csv(csv_file_path)
 
+            # Create a list of all intermediary names from the CSV
+            intermediary_names = newdf['Company'].unique()
              
             # Use st.selectbox to show autocomplete suggestions
             intermediary = st.selectbox("Select an Intermediary Name", index=0)
