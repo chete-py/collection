@@ -150,10 +150,6 @@ if check_password():
             newdf = pd.read_csv(csv_file_path)
 
              
-            # Create a list of suggestions based on the user's input
-            suggestions = newdf['Company'].unique()
-            filtered_suggestions = [s for s in suggestions if search_name.lower() in s.lower()]
-
             # Use st.selectbox to show autocomplete suggestions
             intermediary = st.selectbox("Select an Intermediary Name", filtered_suggestions, index=0)
 
