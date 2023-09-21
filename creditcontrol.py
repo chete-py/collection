@@ -136,7 +136,6 @@ if check_password():
             st.markdown(
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
                 f'<div style="background-color: #f19584; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
-                f'<div style="background-color: #EFE9AB; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black; font-size: 12px">THIS WEEK COLLECTION</strong> <br>'  
                 f"<br>"
                 f"{weekly_amount}<br>"
