@@ -128,6 +128,8 @@ if check_password():
             # Format the current month's total amount
             formatted_current_month_total = "Ksh. {:,.0f}".format(current_month_total)
 
+            total = df["Amount"].sum()
+
 
             st.markdown(
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
@@ -145,6 +147,11 @@ if check_password():
                 f'<strong style="color: black;">THIS WEEK COLLECTION</strong> <br>'  
                 f"<br>"
                 f"{weekly_amount}<br>"
+                f'</div>'
+                f'<div style="background-color: #009f6b; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
+                f'<strong style="color: black;">CUMULATIVE COLLECTION</strong> <br>'  
+                f"<br>"
+                f"{total}<br>"
                 f'</div>'
                 f'</div>',
                 unsafe_allow_html=True
