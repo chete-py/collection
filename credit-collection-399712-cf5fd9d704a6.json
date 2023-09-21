@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "credit-collection-399712",
+  "private_key_id": "cf5fd9d704a6e872d2a961e8bb087cdaafc462df",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCvyvGhnF1NHNlH\n4FmRkfgqF28QKGHzrFjuwy9zeSwBymORJdMIh+wDPYZZu7Xlj0QNvyfo4X0u8Im3\njmUeOpOSl3DKpE2sQDh+CM/J02/Hrztx1qp2Qi27t1g73y45YiJRJuVlieAO4+/H\nPVb2D8xDz+OizS+L/xfWycRXLJt+mrjF6ZDmdDw6669kvZ9rHtEWRG/mswR/TePg\nWpk5meiEaA00+P6I1AfxgPGG3NjRK94Bt5hXSYA7fJIrhK6y6ZR+rhyA93dPeEer\nZiI9hRLtijH+Ax9TsNrvW6Poi8om1bJn+/2NFDfRQKCn7DrOi7PkHpNqGlA57SXH\nxR0JnA0XAgMBAAECggEAKtpmHOdpNysZLJRcQUg8HsanpGCzwBr7cvjR0Gxxdd5I\nd1GpKCM6PW/6GFXR+av7Av7eU77kLVUlvUFRFRVidBHGxR9Yb+0X2GF9hc2tKhhl\nfVK/KyTm0SPYtn+pXQO3KeE5eo8pt3eJNCCX2lPvj3hWHZG3TYFZ5lo5KqcNIMde\nQ8DZECDeQh4pmeXCRubgx1KbNbFvaN0Hy9zgCZYNqC0+2D7BlWtlQb3H+0kKHHDc\nhQyX359I5TKxuUxGQ8DzEnocn/gJos4QiTtnO+/E/wyqPlPY5XdyjPinApDgqG9N\nsbpKiULpq8r1ZZCDk2VBCrNUToBdSSkELfWdhKiqwQKBgQD19pj1pG9Vjk7OhxOO\nZxWk04pFIRERey87v8wghL76Ffoflr4SKU+/yM5fefberqINGZC2zA3FZttgLj10\nuVTezR1iP7I+0rv0aXaYjsJg/2iKE64P9c0D4colMx2AaAq+FGHpv6xaeBcBtSNc\nFfvRWPSjmmMcwc1h021IeqazAwKBgQC291M4qZFMJ5tHzaaJ04+GBiqNFzd3yVYn\nR5SP7xXIpJu1YcMIw8++hr3ztz/hsMi+OWhvxQ/AZjLWx9qnlDGB+irUPqG/8OH1\n0RA4KbaAd4boOE3D9/i8MKRGgkitEsJlP1kD+lBbxEHUhj1AFZ3JayyEOo2bJwFt\nL0hkOb1XXQKBgFD17rtMeOksgnwwshs5i0JJ70V58OhUJ+P+6e36Q/KFsWMcd0v7\nFSkHrAZ5Wu1JhkXRmHTTDeVgSe2KyufU6T69PWLNnJpZO0zkOglVVF4hNAPfHnha\nbDVO6P79qERP+tk+VExgrxbIWKpTOWRiSBVMtpnzg5Q/pp8AvQQSezSJAoGBAIb9\n6X/X0+TNIAsVFvd/iNgIeqKIa5tMh+0JKfocGwVjNaLYk05HMmJPBZzoKhC5HxMC\nRiSYzytT+9RttcyIURKl4a2g3DRCZGS6L+5QEF+uUHHLAM1CillGxh1jiH1xZs3O\ntD10FI/wN+W2eUBr8nOmSDzy+oFrgOjuxslztFfdAoGAaQ75SSskFG8/0dM7dhRx\nNva3lODzJFQtc/8RUjm03XdMAIOv/jg7FqOTshZ1vRcxf9wR5S3YhLvFOfsFiwNk\nzEhUXdXiUF8RnevBjPZfify16/90UtnHosu2+hCIwV5530PBA8nKM+tk+Fnc2VED\nyt1qSRuhe24344c9kOccl1E=\n-----END PRIVATE KEY-----\n",
+  "client_email": "credit-control@credit-collection-399712.iam.gserviceaccount.com",
+  "client_id": "101545108447715052261",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/credit-control%40credit-collection-399712.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
