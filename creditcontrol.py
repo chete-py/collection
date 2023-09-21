@@ -196,7 +196,7 @@ if check_password():
 
             if selected_reviewer != "All":
                 # Filter the DataFrame based on the selected reviewer
-                filtered_df = df[df['Persons Allocated'] == selected_reviewer]
+                filtered_df = df[df['Persons Allocated'] == selected]
             else:
                 # If "All" is selected, show the entire DataFrame
                 filtered_df = df
