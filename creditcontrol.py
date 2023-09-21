@@ -99,9 +99,14 @@ if check_password():
             name = highest_person['Persons Allocated'].values[0]
             highest_collected_amount = highest_person['Amount'].values[0]
 
+           # Remove commas from the "Amount" column and convert to float
+           df['Amount'] = df['Amount'].str.replace(',', '').astype(float)
+
+            # Now you can calculate the highest_collected_amount
+            highest_collected_amount = df['Amount'].max()
+
             # Format highest_collected_amount as an integer with a thousands separator
-            #formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
-            formatted_highest_collected_amount = "Ksh. {:,.0f}".format(float(highest_collected_amount))
+            formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
 
 
             current_date = datetime.datetime.now()
