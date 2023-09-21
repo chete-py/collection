@@ -77,27 +77,27 @@ if check_password():
             data = data[1:]
             df = pd.DataFrame(data, columns=headers)  # Convert data to a DataFrame
             x_data = df['Persons Allocated']
-            y_data = df['Outstanding Amount']
+            y_data = df['Amount']
 
             # Assuming your DataFrame is named 'df'
             df['Delete'] = [''] * len(df)
 
             # Convert the "Amount Collected" column to numeric
-            df['Amount Collected'] = pd.to_numeric(df['Amount Collected'])
+            df['Amount Collected'] = pd.to_numeric(df['Amount'])
 
             highest_collector = df['Person Allocated'].mode().values[0]
             frequent_category_count = df[df['Person Allocated'] == highest_collector].shape[0]
 
-            most_collected = df.groupby('Person Allocated')['Amount Collected'].sum().reset_index()
+            most_collected = df.groupby('Person Allocated')['Amoun'].sum().reset_index()
 
             # Sort by the sum of 'Amount Collected' in descending order
-            result = most_collected.sort_values(by='Amount Collected', ascending=False)
+            result = most_collected.sort_values(by='Amount', ascending=False)
 
             # Get the person with the highest sum
             highest_person = result.head(1)
 
             name = highest_person['Person Allocated'].values[0]
-            highest_collected_amount = highest_person['Amount Collected'].values[0]
+            highest_collected_amount = highest_person['Amount'].values[0]
 
             # Format highest_collected_amount as an integer with a thousands separator
             formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
@@ -107,7 +107,7 @@ if check_password():
             end_of_week = start_of_week + datetime.timedelta(days=6)
             
             week = df[(pd.to_datetime(df['Date']).dt.date >= start_of_week.date()) & (pd.to_datetime(df['Date']).dt.date <= end_of_week.date())]
-            weekly_amount = week["Amount Collected"].sum()
+            weekly_amount = week["Amount"].sum()
 
             st.markdown(
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
@@ -131,8 +131,8 @@ if check_password():
             )
 
             # Create a Plotly bar graph
-            fig = px.bar(x=x_data, y=y_data, labels={'x': 'Person Allocated', 'y': 'Outstanding Amount'})
-            fig.update_layout(title={'text': 'OUTSTANDING AMOUNTS PER PERSON ALLOCATED', 'x': 0.5, 'xanchor': 'center'}) 
+            fig = px.bar(x=x_data, y=y_data, labels={'x': 'Person Allocated', 'y': 'Amount'})
+            fig.update_layout(title={'text': 'AMOUNT COLLECTED PER PERSON ALLOCATED', 'x': 0.5, 'xanchor': 'center'}) 
 
             # Display the Plotly bar graph in Streamlit
             st.markdown("")
