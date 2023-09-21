@@ -213,7 +213,7 @@ if check_password():
                 date_str = date.strftime("%Y-%m-%d")
 
                 # Create a new row of data to add to the Google Sheets spreadsheet
-                new_data = [date_str, intermediary, persons, client, collected]
+                new_data = [persons, intermediary, client, collected, date_str]
 
                 # Append the new row of data to the worksheet
                 worksheet.append_row(new_data) 
