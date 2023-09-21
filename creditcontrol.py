@@ -146,14 +146,14 @@ if check_password():
                 f"{formatted_highest_collected_amount}<br>"
                 f'</div>'
                 f'<div style="background-color: #EFE9AB; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
-                f'<strong style="color: black;", "font-size: 5" >THIS WEEK COLLECTION</strong> <br>'  
+                f'<strong style="color: black;", font-size: 5px >THIS WEEK COLLECTION</strong> <br>'  
                 f"<br>"
                 f"{weekly_amount}<br>"
                 f'</div>'
                 f'<div style="background-color: #009f6b; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black;">CUMULATIVE COLLECTION</strong> <br>'  
                 f"<br>"
-                f"{total}<br>"
+                f"{total_amount}<br>"
                 f'</div>'
                 f'</div>',
                 unsafe_allow_html=True
