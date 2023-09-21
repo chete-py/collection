@@ -179,8 +179,9 @@ if check_password():
             # Add the dashboard elements here
             st.subheader("LATEST UPDATE ON COLLECTION")
 
-            # Create form fields for user input
-            date = st.date_input("Date")
+            # Create form fields for user input           
+            format_date = st.date_input("Date")
+            date = format_date.strftime("%d-%m-%Y")
 
             # Load the CSV file
             csv_file_path = 'agencies.csv'  
