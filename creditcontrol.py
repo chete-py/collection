@@ -135,22 +135,22 @@ if check_password():
 
             st.markdown(
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
-                f'<div style="background-color: #f19584; padding: 13px; border-radius: 10px; width: 250px; margin-right: 20px;">'
+                f'<div style="background-color: #f19584; padding: 15px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black; font-size: 10px">THIS MONTH COLLECTION</strong> <br>'
                 f"<br>"
                 f"{formatted_current_month_total}<br>"
                 f'</div>'
-                f'<div style="background-color: #E7BDFF; padding: 13px; border-radius: 10px; width: 250px; margin-right: 20px;">'
+                f'<div style="background-color: #E7BDFF; padding: 15px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black; font-size: 10px">HIGHEST COLLECTOR</strong> <br>'
                 f"{name}<br>"
                 f"{formatted_highest_collected_amount}<br>"
                 f'</div>'
-                f'<div style="background-color: #EFE9AB; padding: 13px; border-radius: 10px; width: 250px; margin-right: 20px;">'
+                f'<div style="background-color: #EFE9AB; padding: 15px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black; font-size: 10px">THIS WEEK COLLECTION</strong> <br>'  
                 f"<br>"
                 f"{weekly_amount}<br>"
                 f'</div>'
-                f'<div style="background-color: #009f6b; padding: 13px; border-radius: 10px; width: 250px; margin-right: 20px;">'
+                f'<div style="background-color: #009f6b; padding: 15px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black; font-size: 10px">CUMULATIVE COLLECTION</strong> <br>'  
                 f"<br>"
                 f"{total_amount}<br>"
