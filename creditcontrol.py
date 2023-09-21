@@ -216,7 +216,10 @@ if check_password():
                 new_data = [date_str, intermediary, persons, client, collected]
 
                 # Append the new row of data to the worksheet
-                worksheet.append_row(new_data)     
+                worksheet.append_row(new_data) 
+
+                st.success("Data submitted successfully!")
+
 
         elif view == "Records":
             # Show the saved DataFrame here
