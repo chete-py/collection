@@ -161,7 +161,7 @@ if check_password():
 
             # Create a Plotly bar graph
             fig = px.bar(x=x_data, y=y_data, labels={'x': 'Persons Allocated', 'y': 'Amount'})
-            fig.update_layout(title={'text': 'AMOUNT COLLECTED PER PERSON ALLOCATED', 'x': 0.25, 'xanchor': 'center'}) 
+            fig.update_layout(title={'text': 'AMOUNT COLLECTED PER PERSON ALLOCATED', 'x': 0.4, 'xanchor': 'center'}) 
 
             # Display the Plotly bar graph in Streamlit
             st.markdown("")
