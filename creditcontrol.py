@@ -44,7 +44,7 @@ def check_password():
 if check_password():
 
     # Define your Google Sheets credentials JSON file (replace with your own)
-    credentials_path = 'credit-collection-399712'
+    credentials_path = 'credit-collection-399712-cf5fd9d704a6.json'
         
     # Authenticate with Google Sheets using the credentials
     credentials = service_account.Credentials.from_service_account_file(credentials_path, scopes=['https://spreadsheets.google.com/feeds'])
