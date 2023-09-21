@@ -105,6 +105,14 @@ if check_password():
             # Format highest_collected_amount as an integer with a thousands separator
             formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
 
+            # Calculate the current month's total amount
+            current_month = current_date.strftime("%B %Y")
+            current_month_data = df[df['Date'].dt.strftime("%B %Y") == current_month]
+            current_month_total = current_month_data["Amount"].sum()
+            
+            # Format the current month's total amount
+            formatted_current_month_total = "Ksh. {:,.0f}".format(current_month_total)
+
 
             current_date = datetime.datetime.now()
             start_of_week = current_date - datetime.timedelta(days=current_date.weekday())
@@ -116,9 +124,9 @@ if check_password():
             st.markdown(
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
                 f'<div style="background-color: #f19584; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
-                f'<strong style="color: black;">CONTACTED MOST DEBTORS</strong> <br>'
-                f"{highest_collector}<br>"
-                f"{frequent_category_count} accounts<br>"
+                f'<strong style="color: black;">THIS MONTH COLLECTION</strong> <br>'
+                f"{current_month}<br>"
+                f"{formatted_current_month_total} accounts<br>"
                 f'</div>'
                 f'<div style="background-color: #E7BDFF; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black;">HIGHEST COLLECTOR</strong> <br>'
