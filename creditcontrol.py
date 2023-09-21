@@ -165,8 +165,8 @@ if check_password():
 
             
             fig = go.Figure(data=[go.Bar(
-                x= result["Persons Allocated"],
-                y= result        
+                x= df["Persons Allocated"],
+                y= df["Amount"]        
                 )])
 
             fig.update_layout(title={'text': 'AMOUNT COLLECTED PER PERSON ALLOCATED', 'x': 0.375, 'xanchor': 'center'}) 
