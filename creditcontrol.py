@@ -198,7 +198,7 @@ if check_password():
             # Create a dropdown to select a reviewer with "All" option
             selected = st.selectbox("Filter by Person Allocated:", ["All"] + list(unique_person))
 
-            if selected_reviewer != "All":
+            if selected != "All":
                 # Filter the DataFrame based on the selected reviewer
                 filtered_df = df[df['Persons Allocated'] == selected]
             else:
