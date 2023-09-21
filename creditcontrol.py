@@ -113,6 +113,10 @@ if check_password():
             week = df[(pd.to_datetime(df['Date']).dt.date >= start_of_week.date()) & (pd.to_datetime(df['Date']).dt.date <= end_of_week.date())]
             weekly_amount = week["Amount"].sum()
 
+            # Convert the 'Date' column to datetime format
+            df['Date'] = pd.to_datetime(df['Date'])
+
+
             # Calculate the current month's total amount
             current_month = current_date.strftime("%B %Y")
             current_month_data = df[df['Date'].dt.strftime("%B %Y") == current_month]
