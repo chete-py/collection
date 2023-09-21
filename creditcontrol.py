@@ -111,7 +111,8 @@ if check_password():
             end_of_week = start_of_week + datetime.timedelta(days=6)
             
             week = df[(pd.to_datetime(df['Date']).dt.date >= start_of_week.date()) & (pd.to_datetime(df['Date']).dt.date <= end_of_week.date())]
-            weekly_amount = week["Amount"].sum()
+            weekly = week["Amount"].sum()
+            weekly_amount = "Ksh. {:,.0f}".format(weekly)
 
             # Convert the 'Date' column to datetime format
             df['Date'] = pd.to_datetime(df['Date'])
