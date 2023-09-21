@@ -88,7 +88,7 @@ if check_password():
             highest_collector = df['Persons Allocated'].mode().values[0]
             frequent_category_count = df[df['Persons Allocated'] == highest_collector].shape[0]
 
-            most_collected = df.groupby('Persons Allocated')['Amoun'].sum().reset_index()
+            most_collected = df.groupby('Persons Allocated')['Amount'].sum().reset_index()
 
             # Sort by the sum of 'Amount Collected' in descending order
             result = most_collected.sort_values(by='Amount', ascending=False)
