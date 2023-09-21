@@ -176,16 +176,17 @@ if check_password():
             # Filter the DataFrame based on the selected_name
             if intermediary:
                 name_results = newdf[newdf['Company'].str.lower() == intermediary.lower()]
-                if not name_results.empty:
-                    st.write("Search Results:")
+                #if not name_results.empty:
+                    #st.write("Search Results:")
                     
             else:
                 st.write("Search Results:")
 
             
             persons = st.selectbox("Persons Allocated:",["Samuel Kangi", "David Maswii", "Mwangata", "Chrispus Boro", "Collins Chetekei", "Dennis Amdany"])
-            collected = st.number_input("Amount Collected")
             client = st.text_input("Client")
+            collected = st.number_input("Amount Collected")
+            
             
 
             # Check if the user has entered data and submitted the form
