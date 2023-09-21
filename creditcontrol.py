@@ -165,19 +165,17 @@ if check_password():
                 st.write("Search Results:")
 
             
-            #intermediary = st.text_input("Intermediary")
-            persons = st.selectbox("Persons Allocated:",["Samuel Kangi", "David Masui", "Chrispus Boro", "Collins Chetekei", "Dennis Amdany"])
-            outstanding = st.number_input("Outstanding Amount")
+            persons = st.selectbox("Persons Allocated:",["Samuel Kangi", "David Maswii", "Mwangata", "Chrispus Boro", "Collins Chetekei", "Dennis Amdany"])
             collected = st.number_input("Amount Collected")
-            actions = st.text_area("Actions")
-            review = st.selectbox("Reviewed by:",["Samuel Kangi", "David Masui"])
+            client = st.text_input("Client")
+            review = st.selectbox("Reviewed by:",["Samuel Kangi", "David Maswii"])
 
             # Check if the user has entered data and submitted the form
             if st.button("Submit"):
                 date_str = date.strftime("%Y-%m-%d")
 
                 # Create a new row of data to add to the Google Sheets spreadsheet
-                new_data = [date_str, intermediary, persons, outstanding, collected, actions, review]
+                new_data = [date_str, intermediary, persons, client, collected, review]
 
                 # Append the new row of data to the worksheet
                 worksheet.append_row(new_data)     
