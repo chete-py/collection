@@ -105,6 +105,14 @@ if check_password():
             # Format highest_collected_amount as an integer with a thousands separator
             formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
 
+            
+            current_date = datetime.datetime.now()
+            start_of_week = current_date - datetime.timedelta(days=current_date.weekday())
+            end_of_week = start_of_week + datetime.timedelta(days=6)
+            
+            week = df[(pd.to_datetime(df['Date']).dt.date >= start_of_week.date()) & (pd.to_datetime(df['Date']).dt.date <= end_of_week.date())]
+            weekly_amount = week["Amount"].sum()
+
             # Calculate the current month's total amount
             current_month = current_date.strftime("%B %Y")
             current_month_data = df[df['Date'].dt.strftime("%B %Y") == current_month]
@@ -113,13 +121,6 @@ if check_password():
             # Format the current month's total amount
             formatted_current_month_total = "Ksh. {:,.0f}".format(current_month_total)
 
-
-            current_date = datetime.datetime.now()
-            start_of_week = current_date - datetime.timedelta(days=current_date.weekday())
-            end_of_week = start_of_week + datetime.timedelta(days=6)
-            
-            week = df[(pd.to_datetime(df['Date']).dt.date >= start_of_week.date()) & (pd.to_datetime(df['Date']).dt.date <= end_of_week.date())]
-            weekly_amount = week["Amount"].sum()
 
             st.markdown(
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
