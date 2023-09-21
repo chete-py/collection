@@ -97,10 +97,10 @@ if check_password():
             highest_person = result.head(1)
 
             name = highest_person['Persons Allocated'].values[0]
-            # highest_collected_amount = highest_person['Amount'].values[0]
+            highest_collected_amount = highest_person['Amount'].values[0]
            
             # Now you can calculate the highest_collected_amount
-            highest_collected_amount = df['Amount'].max()
+            # highest_collected_amount = df['Amount'].max()
 
             # Format highest_collected_amount as an integer with a thousands separator
             formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
