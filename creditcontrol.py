@@ -125,7 +125,7 @@ if check_password():
                 f'<div style= "display: flex; flex-direction: row;">'  # Container with flex layout
                 f'<div style="background-color: #f19584; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
                 f'<strong style="color: black;">THIS MONTH COLLECTION</strong> <br>'
-                f"{current_month}<br>"
+                f"<br>"
                 f"{formatted_current_month_total} accounts<br>"
                 f'</div>'
                 f'<div style="background-color: #E7BDFF; padding: 10px; border-radius: 10px; width: 250px; margin-right: 20px;">'
