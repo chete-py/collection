@@ -83,7 +83,7 @@ if check_password():
             df['Delete'] = [''] * len(df)
 
             # Convert the "Amount Collected" column to numeric
-            df['Amount'] = pd.to_numeric(df['Amount'])
+            #df['Amount'] = pd.to_numeric(df['Amount'])
 
             highest_collector = df['Persons Allocated'].mode().values[0]
             frequent_category_count = df[df['Persons Allocated'] == highest_collector].shape[0]
