@@ -66,7 +66,7 @@ if check_password():
     # Main Streamlit app code
     def main(): 
         # Create a sidebar to switch between views
-        view = st.sidebar.radio("Select", ["Dashboard", "New Record", "Records"])
+        view = st.sidebar.radio("Select", ["Dashboard", "New Update", "Records"])
     
         if view == "Dashboard":
             st.subheader("PREMIUM COLLECTION UPDATE APPLICATION")
@@ -167,9 +167,9 @@ if check_password():
             st.markdown("")
             st.plotly_chart(fig)
 
-        elif view == "New Record":
+        elif view == "New Update":
             # Add the dashboard elements here
-            st.subheader("NEW ITEM")
+            st.subheader("LATEST UPDATE ON COLLECTION")
 
             # Create form fields for user input
             date = st.date_input("Date")
