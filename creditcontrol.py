@@ -181,7 +181,7 @@ if check_password():
 
             # Create form fields for user input           
             format_date = st.date_input("Date")
-            date = format_date.strftime("%d-%m-%Y")
+            #date = format_date.strftime("%d-%m-%Y")
 
             # Load the CSV file
             csv_file_path = 'agencies.csv'  
@@ -211,7 +211,7 @@ if check_password():
 
             # Check if the user has entered data and submitted the form
             if st.button("Submit"):
-                date_str = date.strftime("%Y-%m-%d")
+                date_str = date.strftime("%d%m%Y")
 
                 # Create a new row of data to add to the Google Sheets spreadsheet
                 new_data = [persons, intermediary, client, collected, date_str]
