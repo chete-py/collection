@@ -83,12 +83,12 @@ if check_password():
             df['Delete'] = [''] * len(df)
 
             # Convert the "Amount Collected" column to numeric
-            df['Amount Collected'] = pd.to_numeric(df['Amount'])
+            df['Amount'] = pd.to_numeric(df['Amount'])
 
-            highest_collector = df['Person Allocated'].mode().values[0]
-            frequent_category_count = df[df['Person Allocated'] == highest_collector].shape[0]
+            highest_collector = df['Persons Allocated'].mode().values[0]
+            frequent_category_count = df[df['Persons Allocated'] == highest_collector].shape[0]
 
-            most_collected = df.groupby('Person Allocated')['Amoun'].sum().reset_index()
+            most_collected = df.groupby('Persons Allocated')['Amoun'].sum().reset_index()
 
             # Sort by the sum of 'Amount Collected' in descending order
             result = most_collected.sort_values(by='Amount', ascending=False)
@@ -96,7 +96,7 @@ if check_password():
             # Get the person with the highest sum
             highest_person = result.head(1)
 
-            name = highest_person['Person Allocated'].values[0]
+            name = highest_person['Persons Allocated'].values[0]
             highest_collected_amount = highest_person['Amount'].values[0]
 
             # Format highest_collected_amount as an integer with a thousands separator
@@ -131,7 +131,7 @@ if check_password():
             )
 
             # Create a Plotly bar graph
-            fig = px.bar(x=x_data, y=y_data, labels={'x': 'Person Allocated', 'y': 'Amount'})
+            fig = px.bar(x=x_data, y=y_data, labels={'x': 'Persons Allocated', 'y': 'Amount'})
             fig.update_layout(title={'text': 'AMOUNT COLLECTED PER PERSON ALLOCATED', 'x': 0.5, 'xanchor': 'center'}) 
 
             # Display the Plotly bar graph in Streamlit
