@@ -100,7 +100,9 @@ if check_password():
             highest_collected_amount = highest_person['Amount'].values[0]
 
             # Format highest_collected_amount as an integer with a thousands separator
-            formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
+            #formatted_highest_collected_amount = "Ksh. {:,.0f}".format(highest_collected_amount)
+            formatted_highest_collected_amount = "Ksh. {:,.0f}".format(float(highest_collected_amount))
+
 
             current_date = datetime.datetime.now()
             start_of_week = current_date - datetime.timedelta(days=current_date.weekday())
