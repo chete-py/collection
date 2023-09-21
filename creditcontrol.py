@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import gspread
 import plotly.express as px
+import plotly.graph_objects as go
 from google.oauth2 import service_account
 import base64
 import datetime
@@ -160,7 +161,14 @@ if check_password():
             )
 
             # Create a Plotly bar graph
-            fig = px.bar(x=x_data, y=y_data, labels={'x': 'Persons Allocated', 'y': 'Amount'})
+            # fig = px.bar(x=x_data, y=y_data, labels={'x': 'Persons Allocated', 'y': 'Amount'})
+
+            
+            fig = go.Figure(data=[go.Bar(
+                x= result["Persons Allocated"],
+                y= result        
+                )])
+
             fig.update_layout(title={'text': 'AMOUNT COLLECTED PER PERSON ALLOCATED', 'x': 0.375, 'xanchor': 'center'}) 
 
             # Display the Plotly bar graph in Streamlit
