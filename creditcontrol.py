@@ -83,7 +83,7 @@ if check_password():
             df['Delete'] = [''] * len(df)
 
             # Convert the "Amount Collected" column to numeric
-            #df['Amount'] = pd.to_numeric(df['Amount'])
+            df['Amount'] = df['Amount'].str.replace(',', '').astype(float)
 
             highest_collector = df['Persons Allocated'].mode().values[0]
             frequent_category_count = df[df['Persons Allocated'] == highest_collector].shape[0]
@@ -97,11 +97,8 @@ if check_password():
             highest_person = result.head(1)
 
             name = highest_person['Persons Allocated'].values[0]
-            highest_collected_amount = highest_person['Amount'].values[0]
-
-           # Remove commas from the "Amount" column and convert to float
-           df['Amount'] = df['Amount'].str.replace(',', '').astype(float)
-
+            # highest_collected_amount = highest_person['Amount'].values[0]
+           
             # Now you can calculate the highest_collected_amount
             highest_collected_amount = df['Amount'].max()
 
