@@ -42,21 +42,23 @@ def check_password():
         return True
 
 if check_password():
+
     # Define your Google Sheets credentials JSON file (replace with your own)
-    credentials_path = 'collection20-aa5f3fb7835e.json'
-    
+    credentials_path = 'credit-collection-399712'
+        
     # Authenticate with Google Sheets using the credentials
     credentials = service_account.Credentials.from_service_account_file(credentials_path, scopes=['https://spreadsheets.google.com/feeds'])
-    
+        
     # Authenticate with Google Sheets using gspread
     gc = gspread.authorize(credentials)
-    
+        
     # Your Google Sheets URL
-    url = "https://docs.google.com/spreadsheets/d/1i5HsneT9vpPREVo-ED_HwLLkPpsSjKVY0vuilehDXxg/edit#gid=0"
-    
+    url = "https://docs.google.com/spreadsheets/d/1qsMOYTwKqumNdbFSQm-jKatl0llP170Ggkoq6Woap44/edit?usp=sharing"
+        
     # Open the Google Sheets spreadsheet
-    worksheet = gc.open_by_url(url).worksheet("assign")
-    
+    worksheet = gc.open_by_url(url).worksheet("collection")
+
+       
     # Add a sidebar
     st.sidebar.image('corplogo.PNG', use_column_width=True)
     st.sidebar.markdown("Navigation Pane")
