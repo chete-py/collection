@@ -211,7 +211,7 @@ if check_password():
 
             # Check if the user has entered data and submitted the form
             if st.button("Submit"):
-                date_str = format_date.strftime("%d-%m-%Y")
+                date_str = format_date.strftime("%d/%m/%Y")
 
                 # Create a new row of data to add to the Google Sheets spreadsheet
                 new_data = [persons, intermediary, client, collected, date_str]
