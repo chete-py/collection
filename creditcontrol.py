@@ -76,7 +76,7 @@ if check_password():
             headers = data[0]
             data = data[1:]
             df = pd.DataFrame(data, columns=headers)  # Convert data to a DataFrame
-            x_data = df['Person Allocated']
+            x_data = df['Persons Allocated']
             y_data = df['Outstanding Amount']
 
             # Assuming your DataFrame is named 'df'
