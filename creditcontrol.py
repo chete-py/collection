@@ -168,14 +168,14 @@ if check_password():
             persons = st.selectbox("Persons Allocated:",["Samuel Kangi", "David Maswii", "Mwangata", "Chrispus Boro", "Collins Chetekei", "Dennis Amdany"])
             collected = st.number_input("Amount Collected")
             client = st.text_input("Client")
-            review = st.selectbox("Reviewed by:",["Samuel Kangi", "David Maswii"])
+            
 
             # Check if the user has entered data and submitted the form
             if st.button("Submit"):
                 date_str = date.strftime("%Y-%m-%d")
 
                 # Create a new row of data to add to the Google Sheets spreadsheet
-                new_data = [date_str, intermediary, persons, client, collected, review]
+                new_data = [date_str, intermediary, persons, client, collected]
 
                 # Append the new row of data to the worksheet
                 worksheet.append_row(new_data)     
@@ -189,14 +189,14 @@ if check_password():
             st.subheader("RECORDS")
 
             # Get the unique reviewer names from the DataFrame
-            unique_reviewers = df['Reviewed by'].unique()
+            unique_person = df['Persons Allocated'].unique()
 
             # Create a dropdown to select a reviewer with "All" option
-            selected_reviewer = st.selectbox("Filter by Reviewer:", ["All"] + list(unique_reviewers))
+            selected = st.selectbox("Filter by Person Allocated:", ["All"] + list(unique_person))
 
             if selected_reviewer != "All":
                 # Filter the DataFrame based on the selected reviewer
-                filtered_df = df[df['Reviewed by'] == selected_reviewer]
+                filtered_df = df[df['Persons Allocated'] == selected_reviewer]
             else:
                 # If "All" is selected, show the entire DataFrame
                 filtered_df = df
